@@ -10,7 +10,7 @@ namespace be.Models
 
         [Required]
         [StringLength(100)]
-        public required string Username { get; set; }
+        public string Username { get; set; }
 
         [Required]
         [EmailAddress]
@@ -18,12 +18,30 @@ namespace be.Models
 
         [Required]
         [StringLength(100, MinimumLength = 6)]
-        public required string Password { get; set; }
+        public  string Password { get; set; }
 
         // Điều này cho phép mỗi người dùng có nhiều department
-        public ICollection<Department> Departments { get; set; } = new List<Department>();
+        public ICollection<Department>? Departments { get; set; } = new List<Department>();
 
         // Điều này cho phép mỗi người dùng có nhiều mail
-        public ICollection<Mail> Mails { get; set; } = new List<Mail>();
+        public ICollection<Mail>? Mails { get; set; } = new List<Mail>();
+    }
+
+    public class UserCreateDto
+    {
+
+        public Guid Id { get; set; }
+
+        [Required]
+        [StringLength(100)]
+        public string Username { get; set; }
+
+        [Required]
+        [EmailAddress]
+        public string? Email { get; set; }
+
+        [Required]
+        [StringLength(100, MinimumLength = 6)]
+        public string Password { get; set; }
     }
 }

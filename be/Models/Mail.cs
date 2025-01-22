@@ -10,13 +10,13 @@ namespace be.Models
 
         [Required]
         [EmailAddress]
-        public required string EmailAddress { get; set; }
+        public string EmailAddress { get; set; }
 
         // Khóa ngoại đến User
         public Guid UserId { get; set; }
 
         [ForeignKey("UserId")]
-        public required User User { get; set; }
+        public User User { get; set; }
     }
 }
 

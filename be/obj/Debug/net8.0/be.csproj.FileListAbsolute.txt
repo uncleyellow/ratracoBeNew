@@ -35,7 +35,6 @@ D:\Desktop\ratracoBe\be\obj\Debug\net8.0\be.pdb
 D:\Desktop\ratracoBe\be\obj\Debug\net8.0\be.genruntimeconfig.cache
 D:\Desktop\ratracoBe\be\obj\Debug\net8.0\ref\be.dll
 D:\Desktop\ratracoNew\fe\be\be\bin\Debug\net8.0\appsettings.Development.json
-D:\Desktop\ratracoNew\fe\be\be\bin\Debug\net8.0\be.staticwebassets.endpoints.json
 D:\Desktop\ratracoNew\fe\be\be\bin\Debug\net8.0\appsettings.json
 D:\Desktop\ratracoNew\fe\be\be\bin\Debug\net8.0\be.exe
 D:\Desktop\ratracoNew\fe\be\be\bin\Debug\net8.0\be.deps.json
@@ -193,14 +192,11 @@ D:\Desktop\ratracoNew\fe\be\be\obj\Debug\net8.0\be.sourcelink.json
 D:\Desktop\ratracoNew\fe\be\be\obj\Debug\net8.0\scopedcss\bundle\be.styles.css
 D:\Desktop\ratracoNew\fe\be\be\obj\Debug\net8.0\staticwebassets.build.json
 D:\Desktop\ratracoNew\fe\be\be\obj\Debug\net8.0\staticwebassets.development.json
-D:\Desktop\ratracoNew\fe\be\be\obj\Debug\net8.0\staticwebassets.build.endpoints.json
 D:\Desktop\ratracoNew\fe\be\be\obj\Debug\net8.0\staticwebassets\msbuild.be.Microsoft.AspNetCore.StaticWebAssets.props
-D:\Desktop\ratracoNew\fe\be\be\obj\Debug\net8.0\staticwebassets\msbuild.be.Microsoft.AspNetCore.StaticWebAssetEndpoints.props
 D:\Desktop\ratracoNew\fe\be\be\obj\Debug\net8.0\staticwebassets\msbuild.build.be.props
 D:\Desktop\ratracoNew\fe\be\be\obj\Debug\net8.0\staticwebassets\msbuild.buildMultiTargeting.be.props
 D:\Desktop\ratracoNew\fe\be\be\obj\Debug\net8.0\staticwebassets\msbuild.buildTransitive.be.props
 D:\Desktop\ratracoNew\fe\be\be\obj\Debug\net8.0\staticwebassets.pack.json
-D:\Desktop\ratracoNew\fe\be\be\obj\Debug\net8.0\staticwebassets.upToDateCheck.txt
 D:\Desktop\ratracoNew\fe\be\be\obj\Debug\net8.0\be.csproj.Up2Date
 D:\Desktop\ratracoNew\fe\be\be\obj\Debug\net8.0\be.dll
 D:\Desktop\ratracoNew\fe\be\be\obj\Debug\net8.0\refint\be.dll

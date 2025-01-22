@@ -14,6 +14,15 @@ namespace be
             builder.Services.AddDbContext<ApplicationDbContext>(options =>
                 options.UseSqlServer(connectionString));
 
+            // Cấu hình CORS
+            builder.Services.AddCors(options =>
+            {
+                options.AddPolicy("AllowAllOrigins",
+                    builder => builder.AllowAnyOrigin()
+                                      .AllowAnyMethod()
+                                      .AllowAnyHeader());
+            });
+
             // Add services to the container.
             builder.Services.AddControllers();
             builder.Services.AddEndpointsApiExplorer();
@@ -29,6 +38,10 @@ namespace be
             }
 
             app.UseHttpsRedirection();
+
+            // Kích hoạt CORS
+            app.UseCors("AllowAllOrigins");
+
             app.UseAuthorization();
 
             app.MapControllers();

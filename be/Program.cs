@@ -1,3 +1,5 @@
+﻿using Microsoft.EntityFrameworkCore;
+using be.Dbcontext; // Đảm bảo sử dụng không gian tên đúng cho ApplicationDbContext
 
 namespace be
 {
@@ -7,10 +9,13 @@ namespace be
         {
             var builder = WebApplication.CreateBuilder(args);
 
-            // Add services to the container.
+            // Cấu hình chuỗi kết nối đến SQL Server
+            var connectionString = builder.Configuration.GetConnectionString("DefaultConnection");
+            builder.Services.AddDbContext<ApplicationDbContext>(options =>
+                options.UseSqlServer(connectionString));
 
+            // Add services to the container.
             builder.Services.AddControllers();
-            // Learn more about configuring Swagger/OpenAPI at https://aka.ms/aspnetcore/swashbuckle
             builder.Services.AddEndpointsApiExplorer();
             builder.Services.AddSwaggerGen();
 
@@ -24,9 +29,7 @@ namespace be
             }
 
             app.UseHttpsRedirection();
-
             app.UseAuthorization();
-
 
             app.MapControllers();
 

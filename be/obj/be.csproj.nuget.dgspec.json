@@ -1,17 +1,17 @@
 {
   "format": 1,
   "restore": {
-    "D:\\Desktop\\ratracoBe\\be\\be.csproj": {}
+    "D:\\Desktop\\ratracoNew\\fe\\be\\be\\be.csproj": {}
   },
   "projects": {
-    "D:\\Desktop\\ratracoBe\\be\\be.csproj": {
+    "D:\\Desktop\\ratracoNew\\fe\\be\\be\\be.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "D:\\Desktop\\ratracoBe\\be\\be.csproj",
+        "projectUniqueName": "D:\\Desktop\\ratracoNew\\fe\\be\\be\\be.csproj",
         "projectName": "be",
-        "projectPath": "D:\\Desktop\\ratracoBe\\be\\be.csproj",
+        "projectPath": "D:\\Desktop\\ratracoNew\\fe\\be\\be\\be.csproj",
         "packagesPath": "C:\\Users\\Administrator\\.nuget\\packages\\",
-        "outputPath": "D:\\Desktop\\ratracoBe\\be\\obj\\",
+        "outputPath": "D:\\Desktop\\ratracoNew\\fe\\be\\be\\obj\\",
         "projectStyle": "PackageReference",
         "fallbackFolders": [
           "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
@@ -50,6 +50,16 @@
         "net8.0": {
           "targetAlias": "net8.0",
           "dependencies": {
+            "Microsoft.EntityFrameworkCore.SqlServer": {
+              "target": "Package",
+              "version": "[9.0.1, )"
+            },
+            "Microsoft.EntityFrameworkCore.Tools": {
+              "include": "Runtime, Build, Native, ContentFiles, Analyzers, BuildTransitive",
+              "suppressParent": "All",
+              "target": "Package",
+              "version": "[9.0.1, )"
+            },
             "Swashbuckle.AspNetCore": {
               "target": "Package",
               "version": "[6.6.2, )"

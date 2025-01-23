@@ -33,6 +33,14 @@ namespace be.Controllers
             return Ok(users);
         }
 
+        //Lấy danh sách người dùng
+        [HttpGet("api/users")]
+        public ActionResult<IEnumerable<User>> GetAllUsers()
+        {
+            var users = _context.Users.ToList();
+            return Ok(users);
+        }
+
         // Lấy thông tin người dùng theo ID
         [HttpGet("{id}")]
         public ActionResult<User> GetUser(Guid id)

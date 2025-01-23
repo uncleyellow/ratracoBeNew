@@ -20,12 +20,11 @@ namespace be.Models
         public User? FromUser { get; set; }
 
         [Required]
-        public Guid? To { get; set; } // Danh sách người nhận
+        public List<Guid> To { get; set; } = new List<Guid>(); // Danh sách người nhận
 
-        public Guid? Cc { get; set; }  // Danh sách CC
+        public List<Guid> Cc { get; set; } = new List<Guid>(); // Danh sách CC
 
-        public Guid? Bcc { get; set; }  // Danh sách BCC
-
+        public List<Guid> Bcc { get; set; } = new List<Guid>(); // Danh sách BCC
 
         [Required]
         public DateTime Date { get; set; } // Ngày gửi thư
@@ -47,7 +46,7 @@ namespace be.Models
 
         public Guid? FolderId { get; set; } // ID thư mục chứa thư này
 
-        public List<string> Labels { get; set; } = new List<string>(); // Danh sách nhãn
+        public List<string>? Labels { get; set; } = new List<string>(); // Danh sách nhãn
     }
 
     public class Attachment
@@ -66,9 +65,11 @@ namespace be.Models
     {
         public string? Type { get; set; } // 'mail' hoặc 'internal'
         public Guid? FromUserId { get; set; } // ID người gửi
-        public Guid? To { get; set; } // Danh sách người nhận
-        public Guid? Cc { get; set; } // Danh sách CC
-        public Guid? Bcc { get; set; } // Danh sách BCC
+        public List<Guid> To { get; set; } = new List<Guid>(); // Danh sách người nhận
+
+        public List<Guid> Cc { get; set; } = new List<Guid>(); // Danh sách CC
+
+        public List<Guid> Bcc { get; set; } = new List<Guid>(); // Danh sách BCC
         public DateTime? Date { get; set; } // Ngày gửi thư
         public string? Subject { get; set; } // Chủ đề của thư
         public string? Content { get; set; } // Nội dung thư
@@ -84,9 +85,11 @@ namespace be.Models
     public class MailPostDto
     {
         public string? Type { get; set; } // 'mail' hoặc 'internal'
-        public Guid? To { get; set; }  // Danh sách người nhận
-        public Guid? Cc { get; set; } // Danh sách CC
-        public Guid? Bcc { get; set; } // Danh sách BCC
+        public List<Guid> To { get; set; } = new List<Guid>(); // Danh sách người nhận
+
+        public List<Guid> Cc { get; set; } = new List<Guid>(); // Danh sách CC
+
+        public List<Guid> Bcc { get; set; } = new List<Guid>(); // Danh sách BCC
         public string? Subject { get; set; } // Chủ đề của thư
         public Guid? FromUserId { get; set; } // ID người gửi
         public string? Content { get; set; } // Nội dung thư

@@ -136,26 +136,6 @@
   },
   {
     "ContainingType": "be.Controllers.MailController",
-    "Method": "GetMails",
-    "RelativePath": "api/Mail",
-    "HttpMethod": "GET",
-    "IsController": true,
-    "Order": 0,
-    "Parameters": [],
-    "ReturnTypes": [
-      {
-        "Type": "System.Collections.Generic.IEnumerable\u00601[[be.Models.Mail, be, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]",
-        "MediaTypes": [
-          "text/plain",
-          "application/json",
-          "text/json"
-        ],
-        "StatusCode": 200
-      }
-    ]
-  },
-  {
-    "ContainingType": "be.Controllers.MailController",
     "Method": "PostMail",
     "RelativePath": "api/Mail",
     "HttpMethod": "POST",
@@ -245,6 +225,16 @@
   },
   {
     "ContainingType": "be.Controllers.MailController",
+    "Method": "GetMails",
+    "RelativePath": "api/Mail/api/mails",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "be.Controllers.MailController",
     "Method": "PostMail",
     "RelativePath": "api/Mail/api/mails",
     "HttpMethod": "POST",
@@ -271,21 +261,21 @@
   },
   {
     "ContainingType": "be.Controllers.MailController",
-    "Method": "GetMailsByUserId",
-    "RelativePath": "api/Mail/api/users/{userId}/mails",
+    "Method": "GetMailById",
+    "RelativePath": "api/Mail/mails/{id}",
     "HttpMethod": "GET",
     "IsController": true,
     "Order": 0,
     "Parameters": [
       {
-        "Name": "userId",
+        "Name": "id",
         "Type": "System.Guid",
         "IsRequired": true
       }
     ],
     "ReturnTypes": [
       {
-        "Type": "System.Collections.Generic.List\u00601[[be.Models.Mail, be, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]",
+        "Type": "be.Models.Mail",
         "MediaTypes": [
           "text/plain",
           "application/json",
@@ -441,6 +431,26 @@
     "ReturnTypes": [
       {
         "Type": "be.Models.User",
+        "MediaTypes": [
+          "text/plain",
+          "application/json",
+          "text/json"
+        ],
+        "StatusCode": 200
+      }
+    ]
+  },
+  {
+    "ContainingType": "be.Controllers.UsersController",
+    "Method": "GetAllUsers",
+    "RelativePath": "api/Users/api/users",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [],
+    "ReturnTypes": [
+      {
+        "Type": "System.Collections.Generic.IEnumerable\u00601[[be.Models.User, be, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]",
         "MediaTypes": [
           "text/plain",
           "application/json",

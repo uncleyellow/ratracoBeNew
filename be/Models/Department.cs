@@ -1,5 +1,6 @@
-﻿using System.ComponentModel.DataAnnotations;
-using System.ComponentModel.DataAnnotations.Schema;
+﻿using System;
+using System.Collections.Generic;
+using System.ComponentModel.DataAnnotations;
 
 namespace be.Models
 {
@@ -12,10 +13,9 @@ namespace be.Models
         [StringLength(100)]
         public string? Name { get; set; }
 
-        // Khóa ngoại đến User
-        public Guid UserId { get; set; }
+        public bool InternalMail { get; set; } // Xác định liệu phòng ban có sử dụng thư nội bộ hay không
 
-        [ForeignKey("UserId")]
-        public User User { get; set; }
+        // Danh sách người dùng thuộc phòng ban
+        public ICollection<User>? Users { get; set; }
     }
 }

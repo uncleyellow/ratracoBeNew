@@ -1,5 +1,7 @@
-﻿using System.Collections.Generic;
+﻿using System;
+using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
+using System.ComponentModel.DataAnnotations.Schema;
 
 namespace be.Models
 {
@@ -10,38 +12,35 @@ namespace be.Models
 
         [Required]
         [StringLength(100)]
-        public string Username { get; set; }
+        public string? Name { get; set; }
+        [Required]
+        public string? Password { get; set; }
 
         [Required]
         [EmailAddress]
         public string? Email { get; set; }
 
-        [Required]
-        [StringLength(100, MinimumLength = 6)]
-        public  string Password { get; set; }
+        public string? Avatar { get; set; } // Đường dẫn đến hình ảnh đại diện
 
-        // Điều này cho phép mỗi người dùng có nhiều department
-        public ICollection<Department>? Departments { get; set; } = new List<Department>();
+        // Khóa ngoại đến Department
+        public Guid? DepartmentId { get; set; }
 
-        // Điều này cho phép mỗi người dùng có nhiều mail
-        public ICollection<Mail>? Mails { get; set; } = new List<Mail>();
+        [ForeignKey("DepartmentId")]
+        public Department? Department { get; set; }
+
+        // Danh sách thư gửi
+        public ICollection<Mail>? SentMails { get; set; }
     }
 
-    public class UserCreateDto
+    public class UserDto
     {
-
         public Guid Id { get; set; }
 
-        [Required]
-        [StringLength(100)]
-        public string Username { get; set; }
+        public string? Name { get; set; }
 
-        [Required]
-        [EmailAddress]
         public string? Email { get; set; }
+        public string? Password { get; set; }
 
-        [Required]
-        [StringLength(100, MinimumLength = 6)]
-        public string Password { get; set; }
+        public string? Avatar { get; set; } // Nếu cần thiết
     }
 }

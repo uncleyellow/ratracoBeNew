@@ -2,6 +2,9 @@
 using be.Models;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
+using System;
+using System.Collections.Generic;
+using System.Linq;
 
 namespace be.Controllers
 {
@@ -16,25 +19,40 @@ namespace be.Controllers
             _context = context;
         }
 
-        [HttpGet]
-        public ActionResult<IEnumerable<User>> GetUsers()
+        //Lấy danh sách người dùng
+       [HttpGet]
+        public ActionResult<IEnumerable<UserDto>> GetUsers()
         {
-            var users = _context.Users.Select(user => new UserCreateDto
+            var users = _context.Users.Select(user => new UserDto
             {
                 Id = user.Id,
-                Username = user.Username,
-                Email = user.Email
+                Name = user.Name,
+                Email = user.Email,
+                Password = user.Password
             }).ToList();
             return Ok(users);
         }
 
-        [HttpPost]
-        public ActionResult<User> PostUser(UserCreateDto userCreateDto)
+        // Lấy thông tin người dùng theo ID
+        [HttpGet("{id}")]
+        public ActionResult<User> GetUser(Guid id)
+        {
+            var user = _context.Users.Find(id);
+            if (user == null)
+            {
+                return NotFound();
+            }
+            return Ok(user);
+        }
+
+        //Thêm người dùng mới
+       [HttpPost]
+        public ActionResult<User> PostUser(UserDto userCreateDto)
         {
             var user = new User
             {
                 Id = Guid.NewGuid(), // Tạo ID mới
-                Username = userCreateDto.Username,
+                Name = userCreateDto.Name,
                 Email = userCreateDto.Email,
                 Password = userCreateDto.Password
             };
@@ -42,9 +60,10 @@ namespace be.Controllers
             _context.Users.Add(user);
             _context.SaveChanges();
 
-            return CreatedAtAction(nameof(GetUsers), new { id = user.Id }, user);
+            return CreatedAtAction(nameof(GetUser), new { id = user.Id }, user);
         }
 
+        // Cập nhật thông tin người dùng theo ID
         [HttpPut("{id}")]
         public ActionResult<User> PutUser(Guid id, User user)
         {
@@ -73,9 +92,9 @@ namespace be.Controllers
 
             return NoContent();
         }
-    
 
-    [HttpDelete("{id}")]
+        // Xóa người dùng theo ID
+        [HttpDelete("{id}")]
         public ActionResult<User> DeleteUser(Guid id)
         {
             var user = _context.Users.Find(id);

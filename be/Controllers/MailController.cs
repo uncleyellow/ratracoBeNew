@@ -23,7 +23,7 @@ namespace be.Controllers
         [HttpGet]
         public ActionResult<IEnumerable<Mail>> GetMails()
         {
-            var mails = _context.Mails.ToList();
+            var mails = _context.Mails?.ToList();
             return Ok(mails);
         }
 
@@ -67,38 +67,37 @@ namespace be.Controllers
             return CreatedAtAction(nameof(GetMail), new { id = mail.Id }, mail);
         }
 
-        [HttpPost]
-        public ActionResult<Mail> PostMail(MailDto mailDto)
+        [HttpPost("api/mails")]
+        public ActionResult<Mail> PostMail(MailPostDto mailDto)
         {
             if (mailDto == null)
             {
                 return BadRequest();
             }
 
-            // Tạo đối tượng Mail từ MailDto
             var mail = new Mail
             {
                 Id = Guid.NewGuid(), // Tạo ID mới
-                Type = mailDto.Type,
+                Type = "mail",
                 FromUserId = mailDto.FromUserId,
-                To = mailDto.To,
+                To = mailDto.To ?? new Guid(),
                 Cc = mailDto.Cc,
                 Bcc = mailDto.Bcc,
-                Date = (DateTime)mailDto.Date,
                 Subject = mailDto.Subject,
                 Content = mailDto.Content,
-                Attachments = mailDto.Attachments,
-                Starred = (bool)mailDto.Starred,
-                Important = (bool)mailDto.Important,
-                Unread = (bool)mailDto.Unread,
-                FolderId = mailDto.FolderId,
-                Labels = mailDto.Labels
+                Date = DateTime.UtcNow, // Ghi lại thời gian gửi
+                Starred = false, // Mặc định
+                Important = false, // Mặc định
+                Unread = true, // Mặc định
+                Attachments = new List<Attachment>(), // Mặc định
+                Labels = new List<string>(), // Mặc định
+                FolderId = new Guid() // Mặc định
             };
 
             _context.Mails.Add(mail);
             _context.SaveChanges();
 
-            return CreatedAtAction(nameof(GetMail), new { id = mail.Id }, mail);
+            return mail;
         }
 
         // Cập nhật thông tin thư theo ID
@@ -143,5 +142,26 @@ namespace be.Controllers
 
             return NoContent();
         }
+
+        [HttpGet("api/users/{userId}/mails")]
+        public ActionResult<List<Mail>> GetMailsByUserId(Guid userId)
+        {
+            var mails = _context.Mails
+                .Where(mail => mail.FromUserId == userId ||
+                               mail.To == userId ||
+                               (mail.Cc != null && mail.Cc == userId) ||
+                               (mail.Bcc != null && mail.Bcc == userId))
+                .ToList();
+
+            if (!mails.Any())
+            {
+                return NotFound();
+            }
+
+            return Ok(mails);
+        }
+
     }
+
+
 }

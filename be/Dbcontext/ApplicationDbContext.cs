@@ -13,15 +13,19 @@ namespace be.Dbcontext
 
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {
-            modelBuilder.Entity<User>()
-                .HasMany(u => u.Departments)
-                .WithOne(d => d.User)
-                .HasForeignKey(d => d.UserId);
+            // Thiết lập quan hệ giữa User và Department
+            modelBuilder.Entity<Department>()
+                .HasMany(d => d.Users) // Một phòng ban có nhiều người dùng
+                .WithOne(u => u.Department) // Một người dùng thuộc về một phòng ban
+                .HasForeignKey(u => u.DepartmentId) // Khóa ngoại là DepartmentId trong User
+                .OnDelete(DeleteBehavior.Cascade); // Xóa phòng ban sẽ xóa tất cả người dùng thuộc về
 
-            modelBuilder.Entity<User>()
-                .HasMany(u => u.Mails)
-                .WithOne(m => m.User)
-                .HasForeignKey(m => m.UserId);
+            // Thiết lập quan hệ giữa User và Mail
+            modelBuilder.Entity<Mail>()
+                .HasOne(m => m.FromUser) // Mỗi thư có một người gửi
+                .WithMany(u => u.SentMails) // Một người dùng có nhiều thư đã gửi
+                .HasForeignKey(m => m.FromUserId) // Khóa ngoại là FromUserId trong Mail
+                .OnDelete(DeleteBehavior.Restrict); // Không xóa thư khi người gửi bị xóa
         }
     }
 }

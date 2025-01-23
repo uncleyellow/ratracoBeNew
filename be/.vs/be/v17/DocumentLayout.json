@@ -15,6 +15,10 @@
       "RelativeMoniker": "D:0:0:{7AAA776B-F3D1-467F-9068-5061B319ECB7}|be.csproj|solutionrelative:models\\user.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
+      "AbsoluteMoniker": "D:0:0:{7AAA776B-F3D1-467F-9068-5061B319ECB7}|be.csproj|d:\\desktop\\ratraconew\\fe\\be\\be\\controllers\\userscontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{7AAA776B-F3D1-467F-9068-5061B319ECB7}|be.csproj|solutionrelative:controllers\\userscontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
       "AbsoluteMoniker": "D:0:0:{7AAA776B-F3D1-467F-9068-5061B319ECB7}|be.csproj|d:\\desktop\\ratraconew\\fe\\be\\be\\dbcontext\\applicationdbcontext.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{7AAA776B-F3D1-467F-9068-5061B319ECB7}|be.csproj|solutionrelative:dbcontext\\applicationdbcontext.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     }
@@ -26,8 +30,21 @@
       "DocumentGroups": [
         {
           "DockedWidth": 200,
-          "SelectedChildIndex": 2,
+          "SelectedChildIndex": 3,
           "Children": [
+            {
+              "$type": "Document",
+              "DocumentIndex": 3,
+              "Title": "UsersController.cs",
+              "DocumentMoniker": "D:\\Desktop\\ratracoNew\\fe\\be\\be\\Controllers\\UsersController.cs",
+              "RelativeDocumentMoniker": "Controllers\\UsersController.cs",
+              "ToolTip": "D:\\Desktop\\ratracoNew\\fe\\be\\be\\Controllers\\UsersController.cs",
+              "RelativeToolTip": "Controllers\\UsersController.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAACIAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-01-23T06:47:50.451Z",
+              "EditorCaption": ""
+            },
             {
               "$type": "Document",
               "DocumentIndex": 2,
@@ -36,14 +53,14 @@
               "RelativeDocumentMoniker": "Models\\User.cs",
               "ToolTip": "D:\\Desktop\\ratracoNew\\fe\\be\\be\\Models\\User.cs",
               "RelativeToolTip": "Models\\User.cs",
-              "ViewState": "AgIAACIAAAAAAAAAAADwvwAAAAAAAAAAAAAAAA==",
+              "ViewState": "AgIAAA4AAAAAAAAAAAAAwAAAAAAAAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2025-01-23T03:17:32.142Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 3,
+              "DocumentIndex": 4,
               "Title": "ApplicationDbContext.cs",
               "DocumentMoniker": "D:\\Desktop\\ratracoNew\\fe\\be\\be\\Dbcontext\\ApplicationDbContext.cs",
               "RelativeDocumentMoniker": "Dbcontext\\ApplicationDbContext.cs",
@@ -51,8 +68,7 @@
               "RelativeToolTip": "Dbcontext\\ApplicationDbContext.cs",
               "ViewState": "AgIAAAkAAAAAAAAAAAA1wBsAAABXAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-01-23T03:15:06.386Z",
-              "EditorCaption": ""
+              "WhenOpened": "2025-01-23T03:15:06.386Z"
             },
             {
               "$type": "Document",
@@ -62,7 +78,7 @@
               "RelativeDocumentMoniker": "Controllers\\MailController.cs",
               "ToolTip": "D:\\Desktop\\ratracoNew\\fe\\be\\be\\Controllers\\MailController.cs",
               "RelativeToolTip": "Controllers\\MailController.cs",
-              "ViewState": "AgIAAA4AAAAAAAAAAAAAAB8AAAAyAAAAAAAAAA==",
+              "ViewState": "AgIAABMAAAAAAAAAAAAuwCEAAAAdAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2025-01-23T01:50:54.75Z",
               "EditorCaption": ""
@@ -75,7 +91,7 @@
               "RelativeDocumentMoniker": "Models\\Mail.cs",
               "ToolTip": "D:\\Desktop\\ratracoNew\\fe\\be\\be\\Models\\Mail.cs",
               "RelativeToolTip": "Models\\Mail.cs",
-              "ViewState": "AgIAAEcAAAAAAAAAAAA6wAsAAAAAAAAAAAAAAA==",
+              "ViewState": "AgIAACQAAAAAAAAAAAAIwDAAAAAjAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2025-01-22T07:11:15.074Z",
               "EditorCaption": ""

@@ -239,40 +239,14 @@
         }
       }
     },
-    "/api/Mail": {
+    "/api/Mail/api/mails": {
       "get": {
         "tags": [
           "Mail"
         ],
         "responses": {
           "200": {
-            "description": "OK",
-            "content": {
-              "text/plain": {
-                "schema": {
-                  "type": "array",
-                  "items": {
-                    "$ref": "#/components/schemas/Mail"
-                  }
-                }
-              },
-              "application/json": {
-                "schema": {
-                  "type": "array",
-                  "items": {
-                    "$ref": "#/components/schemas/Mail"
-                  }
-                }
-              },
-              "text/json": {
-                "schema": {
-                  "type": "array",
-                  "items": {
-                    "$ref": "#/components/schemas/Mail"
-                  }
-                }
-              }
-            }
+            "description": "OK"
           }
         }
       },
@@ -284,17 +258,17 @@
           "content": {
             "application/json": {
               "schema": {
-                "$ref": "#/components/schemas/Mail"
+                "$ref": "#/components/schemas/MailPostDto"
               }
             },
             "text/json": {
               "schema": {
-                "$ref": "#/components/schemas/Mail"
+                "$ref": "#/components/schemas/MailPostDto"
               }
             },
             "application/*+json": {
               "schema": {
-                "$ref": "#/components/schemas/Mail"
+                "$ref": "#/components/schemas/MailPostDto"
               }
             }
           }
@@ -473,7 +447,7 @@
         }
       }
     },
-    "/api/Mail/api/mails": {
+    "/api/Mail": {
       "post": {
         "tags": [
           "Mail"
@@ -482,17 +456,17 @@
           "content": {
             "application/json": {
               "schema": {
-                "$ref": "#/components/schemas/MailPostDto"
+                "$ref": "#/components/schemas/Mail"
               }
             },
             "text/json": {
               "schema": {
-                "$ref": "#/components/schemas/MailPostDto"
+                "$ref": "#/components/schemas/Mail"
               }
             },
             "application/*+json": {
               "schema": {
-                "$ref": "#/components/schemas/MailPostDto"
+                "$ref": "#/components/schemas/Mail"
               }
             }
           }
@@ -521,14 +495,14 @@
         }
       }
     },
-    "/api/Mail/api/users/{userId}/mails": {
+    "/api/Mail/mails/{id}": {
       "get": {
         "tags": [
           "Mail"
         ],
         "parameters": [
           {
-            "name": "userId",
+            "name": "id",
             "in": "path",
             "required": true,
             "schema": {
@@ -543,26 +517,17 @@
             "content": {
               "text/plain": {
                 "schema": {
-                  "type": "array",
-                  "items": {
-                    "$ref": "#/components/schemas/Mail"
-                  }
+                  "$ref": "#/components/schemas/Mail"
                 }
               },
               "application/json": {
                 "schema": {
-                  "type": "array",
-                  "items": {
-                    "$ref": "#/components/schemas/Mail"
-                  }
+                  "$ref": "#/components/schemas/Mail"
                 }
               },
               "text/json": {
                 "schema": {
-                  "type": "array",
-                  "items": {
-                    "$ref": "#/components/schemas/Mail"
-                  }
+                  "$ref": "#/components/schemas/Mail"
                 }
               }
             }
@@ -647,6 +612,44 @@
               "text/json": {
                 "schema": {
                   "$ref": "#/components/schemas/User"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/api/Users/api/users": {
+      "get": {
+        "tags": [
+          "Users"
+        ],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "content": {
+              "text/plain": {
+                "schema": {
+                  "type": "array",
+                  "items": {
+                    "$ref": "#/components/schemas/User"
+                  }
+                }
+              },
+              "application/json": {
+                "schema": {
+                  "type": "array",
+                  "items": {
+                    "$ref": "#/components/schemas/User"
+                  }
+                }
+              },
+              "text/json": {
+                "schema": {
+                  "type": "array",
+                  "items": {
+                    "$ref": "#/components/schemas/User"
+                  }
                 }
               }
             }
@@ -917,17 +920,26 @@
             "$ref": "#/components/schemas/User"
           },
           "to": {
-            "type": "string",
-            "format": "uuid"
+            "type": "array",
+            "items": {
+              "type": "string",
+              "format": "uuid"
+            }
           },
           "cc": {
-            "type": "string",
-            "format": "uuid",
+            "type": "array",
+            "items": {
+              "type": "string",
+              "format": "uuid"
+            },
             "nullable": true
           },
           "bcc": {
-            "type": "string",
-            "format": "uuid",
+            "type": "array",
+            "items": {
+              "type": "string",
+              "format": "uuid"
+            },
             "nullable": true
           },
           "date": {
@@ -982,18 +994,27 @@
             "nullable": true
           },
           "to": {
-            "type": "string",
-            "format": "uuid",
+            "type": "array",
+            "items": {
+              "type": "string",
+              "format": "uuid"
+            },
             "nullable": true
           },
           "cc": {
-            "type": "string",
-            "format": "uuid",
+            "type": "array",
+            "items": {
+              "type": "string",
+              "format": "uuid"
+            },
             "nullable": true
           },
           "bcc": {
-            "type": "string",
-            "format": "uuid",
+            "type": "array",
+            "items": {
+              "type": "string",
+              "format": "uuid"
+            },
             "nullable": true
           },
           "subject": {

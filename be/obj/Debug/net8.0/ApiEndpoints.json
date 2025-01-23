@@ -182,32 +182,6 @@
   },
   {
     "ContainingType": "be.Controllers.MailController",
-    "Method": "PostMail",
-    "RelativePath": "api/Mail",
-    "HttpMethod": "POST",
-    "IsController": true,
-    "Order": 0,
-    "Parameters": [
-      {
-        "Name": "mailDto",
-        "Type": "be.Models.MailDto",
-        "IsRequired": true
-      }
-    ],
-    "ReturnTypes": [
-      {
-        "Type": "be.Models.Mail",
-        "MediaTypes": [
-          "text/plain",
-          "application/json",
-          "text/json"
-        ],
-        "StatusCode": 200
-      }
-    ]
-  },
-  {
-    "ContainingType": "be.Controllers.MailController",
     "Method": "GetMail",
     "RelativePath": "api/Mail/{id}",
     "HttpMethod": "GET",
@@ -268,6 +242,58 @@
       }
     ],
     "ReturnTypes": []
+  },
+  {
+    "ContainingType": "be.Controllers.MailController",
+    "Method": "PostMail",
+    "RelativePath": "api/Mail/api/mails",
+    "HttpMethod": "POST",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "mailDto",
+        "Type": "be.Models.MailPostDto",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": [
+      {
+        "Type": "be.Models.Mail",
+        "MediaTypes": [
+          "text/plain",
+          "application/json",
+          "text/json"
+        ],
+        "StatusCode": 200
+      }
+    ]
+  },
+  {
+    "ContainingType": "be.Controllers.MailController",
+    "Method": "GetMailsByUserId",
+    "RelativePath": "api/Mail/api/users/{userId}/mails",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "userId",
+        "Type": "System.Guid",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": [
+      {
+        "Type": "System.Collections.Generic.List\u00601[[be.Models.Mail, be, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]",
+        "MediaTypes": [
+          "text/plain",
+          "application/json",
+          "text/json"
+        ],
+        "StatusCode": 200
+      }
+    ]
   },
   {
     "ContainingType": "be.Controllers.MailController",
